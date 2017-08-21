@@ -1,0 +1,117 @@
+﻿<Page
+    x:Class="Decision10.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Decision10"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay" IsPaneOpen="False" CompactPaneLength="50" OpenPaneLength="150">
+        <SplitView.Pane>
+            <StackPanel Background="Gray">
+                <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                    Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="Home" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
+                    Width="50" Height="50" Background="Transparent" Click="Home_Click"/>
+                    <TextBlock FontSize="18" VerticalAlignment="Center" x:Uid="HomeButton"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="Contact" FontFamily="Segoe MDL2 Assets" Content="&#xE168;"
+                        Width="50" Height="50" Background="Transparent" Click="Contact_Click"/>
+                    <TextBlock x:Name="textBlock" Text="Contact" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="MoreApps" FontFamily="Segoe MDL2 Assets" Content="&#xE118;"
+                        Width="50" Height="50" Background="Transparent" Click="MoreApps_Click"/>
+                    <TextBlock Text="More Apps" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center">
+                <RelativePanel>
+                    <Pivot x:Name="MainPivot" Title="Decision Solver">
+                        <PivotItem Header="Home">
+                            <Grid>
+                                <RelativePanel>
+                                    <Button x:Name="Coin" Width="130" Height="130" Content="Coin" FontSize="30" Background="Red" Foreground="White" Click="Coin_Click"/>
+                                    <Button x:Name="Dice" RelativePanel.RightOf="Coin" Width="130" Height="130" Margin="20,0,0,0" Content="Dice" FontSize="30" Background="Yellow" Click="Dice_Click"/>
+                                    <Button x:Name="RPS" RelativePanel.Below="Coin" Width="280" Height="130" Margin="0,20,0,0" FontSize="30" Background="Blue" Foreground="White" Click="RPS_Click">
+                                        <TextBlock TextWrapping="Wrap" Text="Rock, Paper, Scissors" TextAlignment="Center"/>
+                                    </Button>
+                                </RelativePanel>
+                            </Grid>
+                        </PivotItem>
+                        <PivotItem x:Name="CoinFrame" Header="Coin">
+                            <Grid>
+                                <RelativePanel>
+                                    <Image x:Name="img_coin" Height="200" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,110,0,0"/>
+                                    <TextBlock x:Name="txt_responseCoin" RelativePanel.Below="img_coin" Height="50" Width="200" Margin="50,10,0,0" VerticalAlignment="Center" FontSize="25" TextAlignment="Center"/>
+                                    <Button x:Name="btn_randomCoin" RelativePanel.Below="txt_responseCoin" Height="50" Width="200" Margin="50,10,0,0" x:Uid="CoinRandom" FontSize="25" Click="btn_randomCoin_Click"/>
+                                    <ComboBox x:Name="CurrencyCB" Header="Coin Face" FontSize="18" Height="70" Width="280" Margin="5,25,0,0" PlaceholderText="Select a Currency" SelectionChanged="CurrencyCB_SelectionChanged">
+                                        <ComboBoxItem>
+                                            Default
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            Great British Pounds
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            US Dollar
+                                        </ComboBoxItem>
+                                    </ComboBox>
+                                </RelativePanel>
+                            </Grid>
+                        </PivotItem>
+                        <PivotItem x:Name="DiceFrame" Header="Dice">
+                            <Grid>
+                                <RelativePanel>
+                                    <Image x:Name="img_dice" Height="200" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,155,0,0"/>
+                                    <TextBlock x:Name="txt_responseDice" RelativePanel.Below="img_dice" Height="50" Width="200" Margin="50,10,0,0" VerticalAlignment="Center" FontSize="35" TextAlignment="Center"/>
+                                    <Button x:Name="btn_randomDice" RelativePanel.Below="txt_responseDice" Height="50" Width="200" Margin="50,10,0,0" x:Uid="DiceRandom" FontSize="25" Click="btn_randomDice_Click"/>
+                                    <ComboBox x:Name="DiceColour" Header="Dice Colour" FontSize="18" Height="70" Width="280" Margin="5,5,0,0" PlaceholderText="Select a dice colour" SelectionChanged="DiceColour_SelectionChanged">
+                                        <ComboBoxItem>
+                                            White on Black
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            Black on White
+                                        </ComboBoxItem>
+                                    </ComboBox>
+                                    <ComboBox x:Name="MultipleDice" RelativePanel.Below="DiceColour" Header="Number of Dice" FontSize="18" Height="70" Width="280" Margin="5,5,0,0" PlaceholderText="Select number of dice" SelectionChanged="MultipleDice_SelectionChanged">
+                                        <ComboBoxItem>
+                                            1-6
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            1-12
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            1-18
+                                        </ComboBoxItem>
+                                    </ComboBox>
+                                </RelativePanel>
+                            </Grid>
+                        </PivotItem>
+                        <PivotItem x:Name="RPSFrame" Header="Rock, Paper, Scissors">
+                            <Grid>
+                                <RelativePanel>
+                                    <Image x:Name="img_RPS" Height="200" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,110,0,0"/>
+                                    <TextBlock x:Name="txt_responseRPS" RelativePanel.Below="img_RPS" Height="50" Width="200" Margin="50,10,0,0" VerticalAlignment="Center" FontSize="35" TextAlignment="Center"/>
+                                    <Button x:Name="btn_randomRPS" RelativePanel.Below="txt_responseRPS" Height="50" Width="200" Margin="50,10,0,0" x:Uid="RPSRandom" FontSize="25" Click="btn_randomRPS_Click"/>
+                                    <ComboBox x:Name="RPSDesign" Header="Rock Paper Scissors Style" FontSize="18" Height="70" Width="296" VerticalAlignment="Top" Margin="0,25,0,0" PlaceholderText="Select a RPS Style" SelectionChanged="RPSDesign_SelectionChanged">
+                                        <ComboBoxItem>
+                                            Default
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            Hands
+                                        </ComboBoxItem>
+                                    </ComboBox>
+                                </RelativePanel>
+                            </Grid>
+                        </PivotItem>
+                    </Pivot>
+                </RelativePanel>
+            </Grid>
+        </SplitView.Content>
+    </SplitView>
+</Page>

@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="Decision10.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Decision10"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay" IsPaneOpen="False" CompactPaneLength="50" OpenPaneLength="150">
+        <SplitView.Pane>
+            <StackPanel Background="Gray">
+                <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                    Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="Home" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
+                    Width="50" Height="50" Background="Transparent" Click="Home_Click"/>
+                    <TextBlock FontSize="18" VerticalAlignment="Center" x:Uid="HomeButton"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="ContactMe" FontFamily="Segoe MDL2 Assets" Content="&#xE168;"
+                        Width="50" Height="50" Background="Transparent" Click="ContactMe_Click"/>
+                    <TextBlock Text="Contact" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="MoreApps" FontFamily="Segoe MDL2 Assets" Content="&#xE118;"
+                        Width="50" Height="50" Background="Transparent" Click="MoreApps_Click"/>
+                    <TextBlock Text="More Apps" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center">
+                <RelativePanel>
+                    <TextBlock x:Name="Title" FontSize="50" Width="auto" Margin="0,0,0,0" Text="Contact" TextAlignment="Center"/>
+                    <TextBlock x:Name="EmailText" RelativePanel.Below="Title" TextWrapping="Wrap" FontSize="20">
+                        Do you have a bug or suggestion? Contact me by Email
+                    </TextBlock>
+                    <HyperlinkButton x:Name="email" Content="Email" RelativePanel.Below="EmailText" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="auto" FontSize="20" Click="email_Click"/>
+                    <TextBlock x:Name="DonateText" RelativePanel.Below="email" TextWrapping="Wrap" FontSize="20">
+                        If you want to support me please consider donating.
+                    </TextBlock>
+                    <HyperlinkButton x:Name="Donate" RelativePanel.Below="DonateText"  Content="Donate" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="auto" FontSize="20" Click="Twitter_Click"/>
+                    <TextBlock x:Name="TwitterText" RelativePanel.Below="Donate" TextWrapping="Wrap" FontSize="20">
+                        To know what I'm doing follow me on Twitter
+                    </TextBlock>
+                    <HyperlinkButton x:Name="Twitter" RelativePanel.Below="TwitterText" Content="@TomBrad95" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="auto" FontSize="20" Click="Twitter_Click"/>
+                    <TextBlock x:Name="TwitterHashtagText" RelativePanel.Below="Twitter" TextWrapping="Wrap" FontSize="20">
+                        To know what I'm doing with Decision Solver please follow the hashtag:
+                    </TextBlock>
+                    <HyperlinkButton x:Name="TwitterHashtag" RelativePanel.Below="TwitterHashtagText" Content="#DecisionSolver" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" FontSize="20" Click="TwitterHashtag_Click"/>
+                    <TextBlock x:Name="GraphicsDetails" RelativePanel.Below="TwitterHashtag" TextWrapping="Wrap" FontSize="20">
+                        Thank you to NB Creative for creating the graphics for the Rock, Paper, Scissors hand images.
+                    </TextBlock>
+                    <HyperlinkButton x:Name="NBCreative" RelativePanel.Below="GraphicsDetails" Content="NB Creative" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="auto" FontSize="20" Click="NBCreative_Click"/>
+                </RelativePanel>
+            </Grid>
+        </SplitView.Content>
+    </SplitView>
+</Page>
